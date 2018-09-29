@@ -22,7 +22,7 @@ defmodule Example.Phoenix do
   defp npm_install do
     System.cmd(
       "npm",
-      ["install", "--only", "production"],
+      ["install"],
       cd: "assets",
       into: IO.stream(:stdio, :line)
     )
