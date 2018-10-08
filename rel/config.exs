@@ -28,14 +28,8 @@ environment :prod do
   set(cookie: :"Ww!uNPwc=MrU>nU6GWAvj,9qq>UG9Gxy`$4QDzRj;).YwI>W]!1,`Li;:0pAP&t4")
 
   set(
-    overlays: [
-      {:copy, "rel/config/prod.exs", "etc/config.exs"}
-    ]
-  )
-
-  set(
     config_providers: [
-      {Mix.Releases.Config.Providers.Elixir, ["${RELEASE_ROOT_DIR}/etc/config.exs"]}
+      {Mix.Releases.Config.Providers.Elixir, ["/app/rel/config/prod.exs"]}
     ]
   )
 
