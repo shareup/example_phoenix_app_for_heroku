@@ -2,7 +2,8 @@ use Mix.Config
 
 config :example, ExampleWeb.Endpoint,
   http: [:inet6, port: {:system, "PORT"}],
-  url: [host: {:system, "WEB_HOST"}, port: {:system, "PORT"}],
+  url: [scheme: "https", host: {:system, "WEB_HOST"}, port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   root: ".",
   cache_static_manifest: "priv/static/cache_manifest.json",
   version: Application.spec(:example, :vsn)
