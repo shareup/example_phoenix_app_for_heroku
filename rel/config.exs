@@ -22,8 +22,7 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 environment :prod do
-  # On heroku, we know ERTS is installed
-  set(include_erts: false)
+  set(include_erts: true)
 
   set(include_src: false)
   set(cookie: :"Ww!uNPwc=MrU>nU6GWAvj,9qq>UG9Gxy`$4QDzRj;).YwI>W]!1,`Li;:0pAP&t4")
