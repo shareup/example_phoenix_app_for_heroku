@@ -9,9 +9,18 @@ config :example, ExampleWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
-config :example, Example.Repo,
-  username: System.get_env("USER"),
-  database: "example_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+if System.get_env("DATABASE_URL") do
+  # For CI
+  config :example, Example.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    url: System.get_env("DATABASE_URL"),
+    pool: Ecto.Adapters.SQL.Sandbox
+else
+  config :example, Example.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    username: System.get_env() |> Map.get("USER", "postgres"),
+    password: "",
+    database: "example_test",
+    hostname: "localhost",
+    pool: Ecto.Adapters.SQL.Sandbox
+end
