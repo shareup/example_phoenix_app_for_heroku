@@ -47,6 +47,9 @@ release :example do
   set(
     applications: [
       :runtime_tools
+    ],
+    commands: [
+      migrate: "rel/commands/migrate.sh"
     ]
   )
 end
