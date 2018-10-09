@@ -42,6 +42,7 @@ defmodule Example.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
+      {:libcluster, "~> 3.0"},
       {:distillery, "~> 2.0"}
     ]
   end
