@@ -43,6 +43,7 @@ defmodule Example.MixProject do
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:libcluster, "~> 3.0"},
+      {:ex_machina, "~> 2.2"},
       {:distillery, "~> 2.0"}
     ]
   end
