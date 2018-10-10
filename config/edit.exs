@@ -1,3 +1,5 @@
+# I use a custom MIX_ENV for my editor so I can use compile checks without interfering with phoenix's code reloading
+
 use Mix.Config
 
 # For development, we disable any cache and enable
@@ -7,7 +9,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :example, ExampleWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT") || "4000")],
+  http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

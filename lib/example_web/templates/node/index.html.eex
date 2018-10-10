@@ -1,0 +1,5 @@
+<ol>
+  <%= for node <- @nodes do %>
+    <li><%= to_string(node) %></li>
+  <% end %>
+</ol>
