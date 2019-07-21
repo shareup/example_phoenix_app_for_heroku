@@ -6,7 +6,7 @@
       ],
       "buildpacks": [
         {
-          "url": "https://github.com/shareup-app/heroku-buildpack-elixir-release.git"
+          "url": "https://github.com/shareup/heroku-buildpack-elixir-release.git"
         }
       ]
     }

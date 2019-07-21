@@ -5,12 +5,19 @@ defmodule Example.MixProject do
     [
       app: :example,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        example: [
+          include_erts: true,
+          include_executables_for: [:unix],
+          steps: [&Example.Release.deploy_assets/1, :assemble]
+        ]
+      ]
     ]
   end
 
@@ -33,18 +40,17 @@ defmodule Example.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix", override: true},
+      {:phoenix, "~> 1.4"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:ecto_sql, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:cowboy, "~> 1.0"},
-      {:libcluster, "~> 3.0"},
-      {:ex_machina, "~> 2.2"},
-      {:distillery, "~> 2.0"}
+      {:phoenix_html, "~> 2.13"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:gettext, "~> 0.17"},
+      {:jason, "~> 1.1"},
+      {:cowboy, "~> 2.6"},
+      {:ex_machina, "~> 2.3"}
     ]
   end
 

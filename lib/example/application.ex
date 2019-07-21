@@ -5,9 +5,6 @@ defmodule Example.Application do
 
   def start(_type, _args) do
     children = [
-      Example.NodeMonitor,
-      {Cluster.Supervisor,
-       [Application.get_env(:libcluster, :topologies), [name: Example.ClusterSupervisor]]},
       Example.Repo,
       ExampleWeb.Endpoint
     ]
